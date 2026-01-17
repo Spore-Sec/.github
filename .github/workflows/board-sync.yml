@@ -1,0 +1,28 @@
+name: Board Self-Healing Sync
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Every hour
+  workflow_dispatch:
+
+jobs:
+  sync-board:
+    runs-on: ubuntu-latest
+    permissions:
+      repository-projects: write
+      issues: read
+    steps:
+      - name: Checkout Config Repo
+        uses: actions/checkout@v4
+
+      - name: Run Sync Logic (via gh CLI)
+        env:
+          GH_TOKEN: ${{ secrets.SPORESEC_PAT }}
+          PROJECT_ID: "PVT_kwDODsl_8M4BMzFe"
+        run: |
+          # Note: The PowerShell script 'sync_board_v2.ps1' is complex to run in Ubuntu/bash 
+          # without setup. For the GitHub Action, we will implement the simplified 
+          # "Check and Update" logic using gh cli directly or install pwsh.
+          # Ubuntu runners have pwsh. We can just invoke the script.
+          
+          pwsh ./scripts/board-automation/sync_board_v2.ps1
