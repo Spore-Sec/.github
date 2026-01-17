@@ -1,0 +1,32 @@
+query {
+  organization(login: "Spore-Sec") {
+    projectV2(number: 2) {
+      id
+      title
+      fields(first: 50) {
+        nodes {
+          ... on ProjectV2FieldCommon { id name dataType }
+          ... on ProjectV2SingleSelectField { id name dataType options { id name } }
+          ... on ProjectV2IterationField { id name dataType configuration { iterations { id title } } }
+        }
+      }
+      items(first: 100) {
+        nodes {
+          id
+          content {
+            ... on Issue { title state number repository { name } labels(first: 10) { nodes { name } } }
+            ... on PullRequest { title state number repository { name } labels(first: 10) { nodes { name } } }
+            ... on DraftIssue { title }
+          }
+          fieldValues(first: 20) {
+            nodes {
+              ... on ProjectV2ItemFieldSingleSelectValue { field { ... on ProjectV2FieldCommon { name } } name }
+              ... on ProjectV2ItemFieldTextValue { field { ... on ProjectV2FieldCommon { name } } text }
+              ... on ProjectV2ItemFieldDateValue { field { ... on ProjectV2FieldCommon { name } } date }
+            }
+          }
+        }
+      }
+    }
+  }
+}

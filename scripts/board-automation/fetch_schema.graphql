@@ -1,0 +1,26 @@
+query {
+  organization(login: "Spore-Sec") {
+    projectV2(number: 2) {
+      id
+      title
+      fields(first: 50) {
+        nodes {
+          ... on ProjectV2FieldCommon {
+            id
+            name
+            dataType
+          }
+          ... on ProjectV2SingleSelectField {
+            id
+            name
+            dataType
+            options {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}

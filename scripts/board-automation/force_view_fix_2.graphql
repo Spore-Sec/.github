@@ -1,0 +1,9 @@
+mutation {
+  updateProjectV2View(input: {
+    projectId: "PVT_kwDODsl_8M4BMzFe"
+    viewId: "PVTV_lADODsl_8M4BMzFezgJDk8k"
+    filter: "component:scraper"
+  }) {
+    view { id filter }
+  }
+}

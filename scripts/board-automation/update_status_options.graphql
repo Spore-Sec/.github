@@ -1,0 +1,25 @@
+mutation {
+  updateProjectV2Field(input: {
+    fieldId: "PVTSSF_lADODsl_8M4BMzFezgOIliI"
+    projectV2Id: "PVT_kwDODsl_8M4BMzFe" # Use Project ID, waiting for validation.. wait, input expects projectId? No, updateProjectV2Field needs fieldId. 
+    # Correction: updateProjectV2Field takes 'fieldId' and 'name'/'options'.
+    singleSelectOptions: [
+      { name: "Backlog", description: "Ideas & Icebox", color: GRAY },
+      { name: "Ready", description: "Prioritized for Sprint", color: BLUE },
+      { name: "In Progress", description: "Active Work", color: YELLOW },
+      { name: "In Review", description: "PR Open", color: PURPLE },
+      { name: "Validation", description: "QA / Testing", color: ORANGE },
+      { name: "Done", description: "Shipped", color: GREEN }
+    ]
+  }) {
+    projectV2Field {
+      ... on ProjectV2SingleSelectField {
+        id
+        options {
+          id
+          name
+        }
+      }
+    }
+  }
+}

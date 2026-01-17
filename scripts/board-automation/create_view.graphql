@@ -1,0 +1,10 @@
+mutation {
+  createProjectV2View(input: {
+    projectId: "PVT_kwDODsl_8M4BMzFe"
+    name: "🚦 Status Board"
+  }) {
+    view {
+      id
+    }
+  }
+}

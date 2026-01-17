@@ -1,0 +1,14 @@
+query {
+  organization(login: "Spore-Sec") {
+    projectV2(number: 2) {
+      title
+      url
+      views(first: 10) {
+        nodes {
+          name
+          filter
+        }
+      }
+    }
+  }
+}

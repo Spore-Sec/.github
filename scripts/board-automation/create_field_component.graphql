@@ -1,0 +1,12 @@
+mutation {
+  createProjectV2Field(input: {
+    projectId: "PVT_kwDODsl_8M4BM1MU"
+    dataType: SINGLE_SELECT
+    name: "Component"
+  }) {
+    projectV2Field {
+      id
+      name
+    }
+  }
+}

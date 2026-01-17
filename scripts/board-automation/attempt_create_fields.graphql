@@ -1,0 +1,18 @@
+mutation {
+  # Attempt 1: Create Priority
+  createPriority: createProjectV2Field(input: {
+    projectId: "PVT_kwDODsl_8M4BMzFe"
+    dataType: SINGLE_SELECT
+    name: "Priority"
+  }) {
+    projectV2Field { id name }
+  }
+  # Attempt 2: Create Target Date
+  createTargetDate: createProjectV2Field(input: {
+    projectId: "PVT_kwDODsl_8M4BMzFe"
+    dataType: DATE
+    name: "Target Date"
+  }) {
+    projectV2Field { id name }
+  }
+}
