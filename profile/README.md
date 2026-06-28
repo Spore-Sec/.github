@@ -36,7 +36,7 @@ user@sporesec-terminal:~$ ./status_check.sh
 ---
 
 ### 🛡️ OPERATORS
-**@AngelRattner** • **@Mahdy-gribkov** • **@SporeSec**
+**@Medy-gribkov** • **@SporeSec** • **מדי גריבקוב**
 
 > *"We verify so you don't have to."*
 
